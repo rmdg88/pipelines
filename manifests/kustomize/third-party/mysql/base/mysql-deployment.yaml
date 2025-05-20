@@ -53,14 +53,21 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+        # securityContext:
+        #   allowPrivilegeEscalation: false
+        #   runAsNonRoot: true
+        #   runAsUser: 999
+        #   runAsGroup: 999
+        #   capabilities:
+        #     drop:
+        #     - ALL
         securityContext:
-          allowPrivilegeEscalation: false
-          runAsNonRoot: true
-          runAsUser: 999
-          runAsGroup: 999
           capabilities:
             drop:
-            - ALL
+              - ALL
+          runAsUser: 1000650001
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
         volumeMounts:
         - mountPath: /var/lib/mysql
           name: mysql-persistent-storage
