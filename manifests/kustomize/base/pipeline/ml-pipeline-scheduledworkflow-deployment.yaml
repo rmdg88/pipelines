@@ -19,7 +19,8 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       containers:
-      - image: ghcr.io/kubeflow/kfp-scheduled-workflow-controller:dummy
+      #- image: ghcr.io/kubeflow/kfp-scheduled-workflow-controller:dummy
+      - image: registry.redhat.io/rhoai/odh-ml-pipelines-scheduledworkflow-v2-rhel8@sha256:99ca5a981184f0dd3f94105172b20494328c5c7a762fb027905e108710b7b5d4
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-scheduledworkflow
         env:
@@ -34,14 +35,21 @@ spec:
               configMapKeyRef:
                 name: pipeline-install-config
                 key: cronScheduleTimezone
+        # securityContext:
+        #   allowPrivilegeEscalation: false
+        #   runAsNonRoot: true
+        #   runAsUser: 1000
+        #   runAsGroup: 0
+        #   capabilities:
+        #     drop:
+        #       - ALL
         securityContext:
-          allowPrivilegeEscalation: false
-          runAsNonRoot: true
-          runAsUser: 1000
-          runAsGroup: 0
           capabilities:
             drop:
-            - ALL
+              - ALL
+          runAsUser: 1000650001
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
         volumeMounts:
           - mountPath: /var/run/secrets/kubeflow/tokens
             name: scheduledworkflow-sa-token
