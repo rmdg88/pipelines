@@ -32,14 +32,21 @@ spec:
         - name: config-volume
           mountPath: /etc/config
           readOnly: true
+        # securityContext:
+        #   allowPrivilegeEscalation: false
+        #   runAsNonRoot: true
+        #   runAsUser: 1000
+        #   runAsGroup: 0
+        #   capabilities:
+        #     drop:
+        #       - ALL
         securityContext:
-          allowPrivilegeEscalation: false
-          runAsNonRoot: true
-          runAsUser: 1000
-          runAsGroup: 0
           capabilities:
             drop:
-            - ALL
+              - ALL
+          runAsUser: 1000650001
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
         env:
           - name: VIEWER_TENSORBOARD_POD_TEMPLATE_SPEC_PATH
             value: /etc/config/viewer-pod-template.json
