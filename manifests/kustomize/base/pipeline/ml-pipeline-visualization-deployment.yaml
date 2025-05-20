@@ -15,9 +15,14 @@ spec:
       annotations:
         cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
     spec:
+      # securityContext:
+      #   seccompProfile:
+      #     type: RuntimeDefault
       securityContext:
-        seccompProfile:
-          type: RuntimeDefault
+        capabilities:
+        runAsUser: 1000650001
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
       containers:
       - image: ghcr.io/kubeflow/kfp-visualization-server:dummy
         imagePullPolicy: IfNotPresent
