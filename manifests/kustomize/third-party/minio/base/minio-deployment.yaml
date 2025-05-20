@@ -16,8 +16,8 @@ spec:
         app: minio
     spec:
       securityContext:
-        fsGroup: 1000
-        fsGroupChangePolicy: "OnRootMismatch"
+        #fsGroup: 1000
+        #fsGroupChangePolicy: "OnRootMismatch"
         seccompProfile:
           type: RuntimeDefault
       containers:
@@ -39,16 +39,23 @@ spec:
         name: minio
         ports:
         - containerPort: 9000
+        # securityContext:
+        #   allowPrivilegeEscalation: false
+        #   seccompProfile:
+        #     type: RuntimeDefault
+        #   runAsNonRoot: true
+        #   runAsUser: 1000
+        #   runAsGroup: 0
+        #   capabilities:
+        #     drop:
+        #     - ALL
         securityContext:
-          allowPrivilegeEscalation: false
-          seccompProfile:
-            type: RuntimeDefault
-          runAsNonRoot: true
-          runAsUser: 1000
-          runAsGroup: 0
           capabilities:
             drop:
-            - ALL
+              - ALL
+          runAsUser: 1000650001
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
         volumeMounts:
         - mountPath: /data
           name: data
