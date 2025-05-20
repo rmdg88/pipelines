@@ -22,7 +22,6 @@ spec:
         capabilities:
         runAsUser: 1000650001
         runAsNonRoot: true
-        allowPrivilegeEscalation: false
       containers:
       - image: ghcr.io/kubeflow/kfp-visualization-server:dummy
         imagePullPolicy: IfNotPresent
