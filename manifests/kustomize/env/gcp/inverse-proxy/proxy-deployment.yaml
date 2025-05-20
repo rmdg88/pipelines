@@ -13,7 +13,7 @@ spec:
       labels:
         app: proxy-agent
     spec:
-      hostNetwork: true
+      #hostNetwork: true
       containers:
       - image: ghcr.io/kubeflow/kfp-inverse-proxy-agent:dummy
         imagePullPolicy: IfNotPresent
