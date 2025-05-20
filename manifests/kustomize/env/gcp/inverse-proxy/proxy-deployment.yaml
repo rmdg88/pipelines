@@ -15,8 +15,7 @@ spec:
     spec:
       #hostNetwork: true
       containers:
-      #- image: ghcr.io/kubeflow/kfp-inverse-proxy-agent:dummy
-      - image: registry.redhat.io/openshift-service-mesh/proxyv2-rhel8@sha256:b30d60cd458133430d4c92bf84911e03cecd02f60e88a58d1c6c003543cf833a
+      - image: ghcr.io/kubeflow/kfp-inverse-proxy-agent:dummy
         imagePullPolicy: IfNotPresent
         name: proxy-agent
         securityContext:
