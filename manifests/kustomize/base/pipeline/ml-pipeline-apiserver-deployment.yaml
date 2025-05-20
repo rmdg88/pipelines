@@ -182,7 +182,7 @@ spec:
             capabilities:
               drop:
                 - ALL
-            runAsUser: 1000830000
+            runAsUser: 1000650001
             runAsNonRoot: true
             allowPrivilegeEscalation: false
           resources:
