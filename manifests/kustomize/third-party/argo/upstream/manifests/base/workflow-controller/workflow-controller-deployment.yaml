@@ -18,13 +18,23 @@ spec:
       containers:
         - name: workflow-controller
           image: quay.io/argoproj/workflow-controller:latest
+          # securityContext:
+          #   readOnlyRootFilesystem: true
+          #   runAsNonRoot: true
+          #   allowPrivilegeEscalation: false
+          #   capabilities:
+          #     drop:
+          #       - ALL
           securityContext:
             readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
             capabilities:
               drop:
                 - ALL
+            runAsUser: 1000650001
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
           command:
             - workflow-controller
           args: []
@@ -47,7 +57,8 @@ spec:
             initialDelaySeconds: 90
             periodSeconds: 60
             timeoutSeconds: 30
-      securityContext:
-        runAsNonRoot: true
+      # securityContext:
+      #   runAsNonRoot: true
+
       nodeSelector:
         kubernetes.io/os: linux
