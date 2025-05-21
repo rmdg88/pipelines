@@ -13,10 +13,19 @@ spec:
             - workflow-controller-configmap
             - --executor-image
             - quay.io/argoproj/argoexec:v3.5.14
+          # securityContext:
+          #   seccompProfile:
+          #     type: RuntimeDefault
+          #   runAsNonRoot: true
           securityContext:
             seccompProfile:
               type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+            runAsUser: 1000650001
             runAsNonRoot: true
+            allowPrivilegeEscalation: false
           resources:
             requests:
               cpu: 100m
