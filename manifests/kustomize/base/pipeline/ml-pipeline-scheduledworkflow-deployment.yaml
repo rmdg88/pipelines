@@ -20,7 +20,6 @@ spec:
           type: RuntimeDefault
       containers:
       - image: ghcr.io/kubeflow/kfp-scheduled-workflow-controller:dummy
-      #- image: registry.redhat.io/rhoai/odh-ml-pipelines-scheduledworkflow-v2-rhel8@sha256:99ca5a981184f0dd3f94105172b20494328c5c7a762fb027905e108710b7b5d4
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-scheduledworkflow
         env:

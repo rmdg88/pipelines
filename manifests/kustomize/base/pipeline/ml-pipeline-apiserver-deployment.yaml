@@ -123,7 +123,6 @@ spec:
             - name: V2_LAUNCHER_IMAGE
               value: ghcr.io/kubeflow/kfp-launcher:2.5.0
           image: ghcr.io/kubeflow/kfp-api-server:dummy
-          #image: registry.redhat.io/rhoai/odh-ml-pipelines-api-server-v2-rhel8@sha256:da649491f5112763d9f563d64ca3455ed5e4309b15adab0886ae16e0bb367b0c
           imagePullPolicy: IfNotPresent
           name: ml-pipeline-api-server
           ports:

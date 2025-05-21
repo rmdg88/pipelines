@@ -31,7 +31,6 @@ spec:
           - name: LOG_LEVEL
             value: "info"
         image: ghcr.io/kubeflow/kfp-persistence-agent:dummy
-        #image: registry.redhat.io/rhoai/odh-ml-pipelines-persistenceagent-v2-rhel8@sha256:4e0c858d68f925a307ee53498aa6019563254c5b27f5d7635debc0195db2c5bd
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-persistenceagent
         resources:
