@@ -78,3 +78,11 @@ rules:
   - seldondeployments
   verbs:
   - '*'
+# https://argo-workflows.readthedocs.io/en/release-3.5/workflow-rbac/
+- apiGroups:
+    - argoproj.io
+  resources:
+    - workflowtaskresults
+  verbs:
+    - create
+    - patch
