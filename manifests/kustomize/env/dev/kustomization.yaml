@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
 # Application controller is used to provide Google Cloud Console integration.
-- ../../third-party/application
-- ../../base/application
+# - ../../third-party/application
+# - ../../base/application
 - ../platform-agnostic
 #- ../gcp/inverse-proxy
 

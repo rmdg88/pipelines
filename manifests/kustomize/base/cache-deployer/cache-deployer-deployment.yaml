@@ -25,5 +25,12 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        securityContext:
+          capabilities:
+            drop:
+              - ALL
+          runAsUser: 1000650001
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
       serviceAccountName: kubeflow-pipelines-cache-deployer-sa
       restartPolicy: Always

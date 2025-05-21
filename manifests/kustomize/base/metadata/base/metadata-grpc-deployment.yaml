@@ -25,8 +25,8 @@ spec:
         # * .cloudbuild.yaml and .release.cloudbuild.yaml
         # * manifests/kustomize/base/metadata/base/metadata-grpc-deployment.yaml
         # * test/tag_for_hosted.sh
-        #image: gcr.io/tfx-oss-public/ml_metadata_store_server:1.14.0
-        image: registry.redhat.io/rhoai/odh-mlmd-grpc-server-rhel8@sha256:56c432c302bec0a7b810e037da5c649da39a5180a4fabf2fb3d0a2ac2e53ecd3
+        image: gcr.io/tfx-oss-public/ml_metadata_store_server:1.14.0
+        #image: registry.redhat.io/rhoai/odh-mlmd-grpc-server-rhel8@sha256:56c432c302bec0a7b810e037da5c649da39a5180a4fabf2fb3d0a2ac2e53ecd3
         # securityContext:
         #   allowPrivilegeEscalation: false
         #   seccompProfile:
